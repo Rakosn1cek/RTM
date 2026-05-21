@@ -31,12 +31,13 @@ chmod +x ~/path/to/RTM/rtm.py
 
 3. **Add Alias (Recommended)**: 
 Add this to your shell config (~/.bashrc or ~/.zshrc):
-`alias rtm="python3 ~/path/to/RTM/rtm.py"
+`alias rtm="python3 ~/path/to/RTM/rtm.py"`
 
 **Usage**
 
 **Interactive Mode (TUI)**
 Simply run the alias or script:
+
 `rtm`
 
 **Keybindings**:
@@ -69,7 +70,10 @@ You can manage tasks directly from the terminal without opening the UI:
 **Automation (Systemd)**
 To enable background checks for notifications and recurring tasks:
 
-1. **Create** ~/.config/systemd/user/rtm-check.service:
+1. **Create** 
+
+`~/.config/systemd/user/rtm-check.service`
+
 [Unit]
 
 Description=RTM Task Manager Notification Check
@@ -80,11 +84,11 @@ Type=oneshot
 
 **%h expands to your home directory automatically**
 
-ExecStart=%h/custom-scripts/RTM/rtm.py -n -k
+`ExecStart=%h/custom-scripts/RTM/rtm.py -n -k`
 
 2. **Create**
 
-`~/.config/systemd/user/rtm-check.timer:`
+`~/.config/systemd/user/rtm-check.timer`
 
 [Unit]
 
@@ -107,4 +111,6 @@ WantedBy=timers.target
 systemctl --user enable --now rtm-check.timer
 
 Data Location
-Your tasks are stored securely in JSON format, following XDG standards: ~/.local/share/arch_task_manager/tasks.json
+Your tasks are stored securely in JSON format, following XDG standards: 
+
+`~/.local/share/arch_task_manager/tasks.json`

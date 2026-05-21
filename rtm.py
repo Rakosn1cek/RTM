@@ -17,7 +17,7 @@ import re
 
 # --- Constants and Configuration ---
 
-APP_NAME = "arch_task_manager"
+APP_NAME = "task_manager"
 DATA_DIR = Path.home() / ".local" / "share" / APP_NAME
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 TASK_FILE = DATA_DIR / "tasks.json"
@@ -243,7 +243,7 @@ class TaskManager:
         }
         print(json.dumps(output))
 
-    # --- TUI Methods ---
+    # --- TUI ---
     def add_task(self):
         self.console.print("\n[bold cyan]--- Add New Task ---[/bold cyan]")
         while True:
@@ -361,7 +361,7 @@ class TaskManager:
 /_/ |_| /_/ /_/  /_/   
 """
         self.console.print(Align.center(Text(banner, style="bold cyan")))
-        self.console.print(Align.center(Text(f"{VERSION} | Arch Linux", style="dim white")))
+        self.console.print(Align.center(Text(f"{VERSION} | Linux - CLI", style="dim white")))
 
     def display_tasks(self, completed=False, tasks_list=None):
         if tasks_list is None: tasks_to_display = self.get_sorted_tasks(completed=completed)
@@ -429,7 +429,7 @@ class TaskManager:
             content = f"ID: {tid}\nTitle: {t_text}\nPrio: {prio}\nDue: {due}\n---\n{desc}"
             return Panel(content, title=f"Task {tid}", border_style=border)
         else:
-            # Now all inputs are guaranteed to be strings
+            # All inputs are guaranteed to be strings
             return [Text(tid), title, Text(desc), Text(prio), Text(due)]
 
     def _add_task_internal(self, title, description, priority, due_date_str, repeat_interval=None):
