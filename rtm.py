@@ -17,7 +17,7 @@ import re
 
 # --- Constants and Configuration ---
 
-APP_NAME = "task_manager"
+APP_NAME = "arch_task_manager"
 DATA_DIR = Path.home() / ".local" / "share" / APP_NAME
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 TASK_FILE = DATA_DIR / "tasks.json"
