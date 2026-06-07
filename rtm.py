@@ -537,6 +537,8 @@ class TaskManager:
             self.generate_report()
 
     def run(self):
+        self.check_and_send_notifications()
+        
         while True:
             self.console.clear()
             self._print_banner()
